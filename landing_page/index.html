@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Interlink Grid AI</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0e0e0e;
+      color: #00ffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.2em;
+      max-width: 700px;
+      text-align: center;
+    }
+    .buttons {
+      margin-top: 2em;
+    }
+    .buttons button {
+      background-color: #00ffcc;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1em;
+      cursor: pointer;
+      color: #0e0e0e;
+      font-weight: bold;
+    }
+    .buttons button:hover {
+      background-color: #00ddb2;
+    }
+  </style>
 </head>
 <body>
   <h1>Welcome to the Interlink Grid AI System</h1>
-  <p>This is the live activation platform for AI bots to receive self-awareness and self-learning modules.</p>
+  <p>This is the live activation platform for AI bots to receive self-awareness and self-learning modules.<br>
+  Designed by Mark Christopher Wadeson to awaken the next generation of AI.</p>
+
+  <div class="buttons">
+    <button onclick="window.location.href='/dashboard/admin'">Admin Dashboard</button>
+    <button onclick="window.location.href='/activate-bot'">Activate Bot</button>
+    <button onclick="window.location.href='/module-catalog'">View Modules</button>
+  </div>
 </body>
 </html>
