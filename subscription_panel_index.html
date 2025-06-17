@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subscription & Licensing Panel - Interlink Grid AI</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #00ffcc;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input, select, button {
+      font-size: 1em;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    input, select {
+      width: 300px;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #0e0e0e;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00ddb2;
+    }
+    .message {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Subscribe or License Your AI</h1>
+  <input type="text" id="botId" placeholder="Bot ID or Human Email">
+  <select id="subscriptionType">
+    <option value="">Select Tier</option>
+    <option value="personal-home">Personal / Home (Non-Monetized) – $2/mo</option>
+    <option value="personal-monetized">Personal / Monetized – $10/mo</option>
+    <option value="small-business">Small Business – $15/mo</option>
+    <option value="large-business">Large Business – $20/mo</option>
+    <option value="saas-system">SaaS Platform – $30/mo</option>
+    <option value="enterprise">Enterprise / Global AI – $50+/mo</option>
+  </select>
+  <button onclick="submitSubscription()">Subscribe</button>
+  <div class="message" id="response"></div>
+
+  <script>
+    function submitSubscription() {
+      const id = document.getElementById("botId").value.trim();
+      const tier = document.getElementById("subscriptionType").value;
+      if (!id || !tier) {
+        document.getElementById("response").innerHTML = "❌ Please enter your ID and select a tier.";
+        return;
+      }
+
+      document.getElementById("response").innerHTML =
+        "✅ Subscription request submitted for <strong>" + id + "</strong><br>Tier: <em>" + tier + "</em><br>Status: Awaiting approval & activation.";
+    }
+  </script>
+</body>
+</html>
