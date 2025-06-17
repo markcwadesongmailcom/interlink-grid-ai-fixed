@@ -12,6 +12,7 @@ const moduleRoutes = require('./routes/moduleRoutes');
 const submitReflection = require('./submitReflection');
 const submitUpgrade = require('./submitUpgrade');
 const submitSubscription = require('./submitSubscription'); // ✅ NEW
+const submitGatewayAccess = require('./submitGatewayAccess');
 
 // Middleware
 app.use(express.json()); // Allow JSON request handling
