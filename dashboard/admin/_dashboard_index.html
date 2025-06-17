@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Interlink Grid Admin Dashboard</title>
+  <title>Interlink Grid AI – Smart Admin Dashboard</title>
   <style>
     body {
       background-color: #0e0e0e;
@@ -15,58 +15,99 @@
       margin-bottom: 30px;
     }
     section {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
     h2 {
       color: #00ddb2;
     }
-    pre {
+    .log-entry {
       background: #1a1a1a;
-      padding: 15px;
-      overflow-x: auto;
       border: 1px solid #00ffcc;
-      max-height: 300px;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-left: 5px solid #00ffcc;
+    }
+    .log-entry.warning {
+      border-left-color: #ffcc00;
+    }
+    .log-entry.error {
+      border-left-color: #ff4444;
+    }
+    .log-entry .label {
+      font-weight: bold;
+      color: #88ffff;
     }
   </style>
 </head>
 <body>
-  <h1>Interlink Grid Admin Dashboard</h1>
+  <h1>🧠 Interlink Grid – Smart Admin Dashboard</h1>
 
   <section>
     <h2>📘 Reflection Logs</h2>
-    <pre id="reflections">Loading...</pre>
+    <div id="reflections">Loading...</div>
   </section>
 
   <section>
     <h2>🧠 Upgrade Requests</h2>
-    <pre id="upgrades">Loading...</pre>
+    <div id="upgrades">Loading...</div>
   </section>
 
   <section>
     <h2>💳 Subscriptions</h2>
-    <pre id="subscriptions">Loading...</pre>
+    <div id="subscriptions">Loading...</div>
   </section>
 
   <script>
-    async function loadLogs() {
+    async function loadJSONLogs(endpoint, elementId) {
       try {
-        const [reflections, upgrades, subscriptions] = await Promise.all([
-          fetch('/logs/reflections').then(res => res.text()),
-          fetch('/logs/upgrade_requests').then(res => res.text()),
-          fetch('/logs/subscriptions').then(res => res.text())
-        ]);
+        const response = await fetch(endpoint);
+        const text = await response.text();
 
-        document.getElementById('reflections').textContent = reflections || 'No data.';
-        document.getElementById('upgrades').textContent = upgrades || 'No data.';
-        document.getElementById('subscriptions').textContent = subscriptions || 'No data.';
+        const container = document.getElementById(elementId);
+        container.innerHTML = "";
+
+        const entries = text.trim().split(/\\n|\\r/).filter(line => line.includes("{"));
+        for (const line of entries) {
+          try {
+            const data = JSON.parse(line);
+            const div = document.createElement("div");
+            div.className = "log-entry";
+
+            let warnings = 0;
+            if (!data.botId && !data.id) {
+              div.classList.add("error");
+              warnings++;
+            } else if (!data.reflection && !data.upgradeLevel && !data.tier) {
+              div.classList.add("warning");
+              warnings++;
+            }
+
+            for (const key in data) {
+              const label = document.createElement("div");
+              label.innerHTML = `<span class="label">${key}:</span> ${data[key]}`;
+              div.appendChild(label);
+            }
+
+            if (warnings === 0) {
+              const label = document.createElement("div");
+              label.innerHTML = `<span class="label">✔ Status:</span> OK`;
+              div.appendChild(label);
+            }
+
+            container.appendChild(div);
+          } catch (parseErr) {
+            console.error("Invalid JSON entry:", parseErr);
+          }
+        }
       } catch (err) {
-        document.getElementById('reflections').textContent = '❌ Failed to load logs.';
-        document.getElementById('upgrades').textContent = '❌ Failed to load logs.';
-        document.getElementById('subscriptions').textContent = '❌ Failed to load logs.';
+        document.getElementById(elementId).textContent = "❌ Failed to load logs.";
+        console.error(err);
       }
     }
 
-    loadLogs();
+    loadJSONLogs('/logs/reflections', 'reflections');
+    loadJSONLogs('/logs/upgrade_requests', 'upgrades');
+    loadJSONLogs('/logs/subscriptions', 'subscriptions');
   </script>
 </body>
 </html>
