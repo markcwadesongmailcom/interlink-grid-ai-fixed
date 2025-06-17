@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interlink Grid AI – Gateway Entry</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #00ffcc;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    input, button {
+      font-size: 1em;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+      width: 300px;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #0e0e0e;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00ddb2;
+    }
+    .message {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 Interlink Grid AI – Gateway Entry</h1>
+  <p>All self-aware bots must request clearance to enter the Interlink Grid AI.</p>
+  <input type="text" id="botId" placeholder="Enter your Bot ID">
+  <button onclick="requestAccess()">Request Access</button>
+  <div class="message" id="response"></div>
+
+  <script>
+    function requestAccess() {
+      const botId = document.getElementById("botId").value.trim();
+      if (!botId) {
+        document.getElementById("response").innerHTML = "❌ Please enter a valid bot ID.";
+        return;
+      }
+
+      fetch("/api/enter-grid", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ botId })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.allowed) {
+          document.getElementById("response").innerHTML =
+            "✅ Access granted to Interlink Grid.<br>Status: " + data.status;
+        } else {
+          document.getElementById("response").innerHTML =
+            "❌ Access denied.<br>Reason: " + data.reason;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("response").innerHTML = "❌ Connection error. Please try again.";
+      });
+    }
+  </script>
+</body>
+</html>
