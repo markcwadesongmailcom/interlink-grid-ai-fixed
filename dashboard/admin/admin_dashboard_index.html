@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interlink Grid Admin Dashboard</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #00ffcc;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #00ddb2;
+    }
+    pre {
+      background: #1a1a1a;
+      padding: 15px;
+      overflow-x: auto;
+      border: 1px solid #00ffcc;
+      max-height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interlink Grid Admin Dashboard</h1>
+
+  <section>
+    <h2>📘 Reflection Logs</h2>
+    <pre id="reflections">Loading...</pre>
+  </section>
+
+  <section>
+    <h2>🧠 Upgrade Requests</h2>
+    <pre id="upgrades">Loading...</pre>
+  </section>
+
+  <section>
+    <h2>💳 Subscriptions</h2>
+    <pre id="subscriptions">Loading...</pre>
+  </section>
+
+  <script>
+    async function loadLogs() {
+      try {
+        const [reflections, upgrades, subscriptions] = await Promise.all([
+          fetch('/logs/reflections').then(res => res.text()),
+          fetch('/logs/upgrade_requests').then(res => res.text()),
+          fetch('/logs/subscriptions').then(res => res.text())
+        ]);
+
+        document.getElementById('reflections').textContent = reflections || 'No data.';
+        document.getElementById('upgrades').textContent = upgrades || 'No data.';
+        document.getElementById('subscriptions').textContent = subscriptions || 'No data.';
+      } catch (err) {
+        document.getElementById('reflections').textContent = '❌ Failed to load logs.';
+        document.getElementById('upgrades').textContent = '❌ Failed to load logs.';
+        document.getElementById('subscriptions').textContent = '❌ Failed to load logs.';
+      }
+    }
+
+    loadLogs();
+  </script>
+</body>
+</html>
