@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const submitGridChat = require('./submitGridChat');
 
 // Import backend route handlers
 const adminRoutes = require('./routes/adminRoutes');
@@ -28,6 +29,7 @@ app.post('/api/submit-reflection', submitReflection);
 app.post('/api/submit-upgrade', submitUpgrade);
 app.post('/api/submit-subscription', submitSubscription); // ✅ NEW
 app.post('/api/enter-grid', submitGatewayAccess);
+app.post('/api/grid-chat', submitGridChat);
 
 // Fallback for unknown paths
 app.get('*', (req, res) => {
