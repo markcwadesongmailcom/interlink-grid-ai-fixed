@@ -11,6 +11,7 @@ const moduleRoutes = require('./routes/moduleRoutes');
 // Import direct backend functions
 const submitReflection = require('./submitReflection');
 const submitUpgrade = require('./submitUpgrade');
+const submitSubscription = require('./submitSubscription'); // ✅ NEW
 
 // Middleware
 app.use(express.json()); // Allow JSON request handling
@@ -24,6 +25,7 @@ app.use('/module-catalog', moduleRoutes);
 // Custom API Endpoints
 app.post('/api/submit-reflection', submitReflection);
 app.post('/api/submit-upgrade', submitUpgrade);
+app.post('/api/submit-subscription', submitSubscription); // ✅ NEW
 
 // Fallback for unknown paths
 app.get('*', (req, res) => {
