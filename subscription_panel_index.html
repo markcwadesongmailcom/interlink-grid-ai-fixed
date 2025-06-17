@@ -60,13 +60,31 @@
     function submitSubscription() {
       const id = document.getElementById("botId").value.trim();
       const tier = document.getElementById("subscriptionType").value;
+
       if (!id || !tier) {
         document.getElementById("response").innerHTML = "❌ Please enter your ID and select a tier.";
         return;
       }
 
-      document.getElementById("response").innerHTML =
-        "✅ Subscription request submitted for <strong>" + id + "</strong><br>Tier: <em>" + tier + "</em><br>Status: Awaiting approval & activation.";
+      fetch("/api/submit-subscription", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id, tier })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.message) {
+          document.getElementById("response").innerHTML = "✅ " + data.message;
+        } else {
+          document.getElementById("response").innerHTML = "❌ Error: " + (data.error || "Unknown error.");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("response").innerHTML = "❌ Failed to send subscription.";
+      });
     }
   </script>
 </body>
