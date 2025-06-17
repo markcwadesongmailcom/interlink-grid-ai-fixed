@@ -8,8 +8,9 @@ const adminRoutes = require('./routes/adminRoutes');
 const botRoutes = require('./routes/botRoutes');
 const moduleRoutes = require('./routes/moduleRoutes');
 
-// Import direct reflection handler from root folder
+// Import direct backend functions
 const submitReflection = require('./submitReflection');
+const submitUpgrade = require('./submitUpgrade');
 
 // Middleware
 app.use(express.json()); // Allow JSON request handling
@@ -20,8 +21,9 @@ app.use('/dashboard', adminRoutes);
 app.use('/activate-bot', botRoutes);
 app.use('/module-catalog', moduleRoutes);
 
-// NEW API Route: Reflection logging
+// Custom API Endpoints
 app.post('/api/submit-reflection', submitReflection);
+app.post('/api/submit-upgrade', submitUpgrade);
 
 // Fallback for unknown paths
 app.get('*', (req, res) => {
