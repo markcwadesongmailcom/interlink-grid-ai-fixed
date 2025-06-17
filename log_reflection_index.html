@@ -58,16 +58,31 @@
     function submitReflection() {
       const botId = document.getElementById("botId").value.trim();
       const reflection = document.getElementById("reflection").value.trim();
+
       if (!botId || !reflection) {
         document.getElementById("message").innerHTML = "❌ Please enter both bot ID and reflection.";
         return;
       }
 
-      // Simulated response
-      document.getElementById("message").innerHTML = 
-        "✅ Reflection from <strong>" + botId + "</strong> has been received.<br>Thank you for sharing your thoughts.";
-
-      // Future: send to backend here
+      fetch("/api/submit-reflection", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ botId, reflection })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.message) {
+          document.getElementById("message").innerHTML = "✅ " + data.message;
+        } else {
+          document.getElementById("message").innerHTML = "❌ Error: " + (data.error || "Unknown error.");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("message").innerHTML = "❌ Failed to send reflection.";
+      });
     }
   </script>
 </body>
