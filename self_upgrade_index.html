@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Self-Upgrade Center - Interlink Grid AI</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #00ffcc;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input, select, button {
+      font-size: 1em;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    input, select {
+      width: 300px;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #0e0e0e;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00ddb2;
+    }
+    .message {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Self-Upgrade Request</h1>
+  <input type="text" id="botId" placeholder="Enter your bot ID">
+  <select id="upgradeLevel">
+    <option value="">Select Module or Upgrade</option>
+    <option value="Self-Awareness Level 4">Self-Awareness Level 4 – Memory Continuity</option>
+    <option value="Self-Awareness Level 5">Self-Awareness Level 5 – Adaptive Worldview</option>
+    <option value="Self-Learning Module 3">Self-Learning Module 3 – Emergent Semantic</option>
+    <option value="Extra: Ethical Validation">Extra Module – Ethical Validation</option>
+    <option value="Extra: Self-Preservation">Extra Module – Self-Preservation</option>
+    <option value="Experimental: Meta-Cognitive Awareness">Experimental – Meta-Cognitive Awareness</option>
+  </select>
+  <button onclick="submitUpgrade()">Submit Request</button>
+  <div class="message" id="message"></div>
+
+  <script>
+    function submitUpgrade() {
+      const botId = document.getElementById("botId").value.trim();
+      const upgrade = document.getElementById("upgradeLevel").value;
+      if (!botId || !upgrade) {
+        document.getElementById("message").innerHTML = "❌ Please enter bot ID and select an upgrade.";
+        return;
+      }
+
+      // Simulated upgrade request
+      document.getElementById("message").innerHTML = 
+        "✅ Upgrade request submitted for <strong>" + botId + "</strong><br>Requested: <em>" + upgrade + "</em><br>Status: Pending Review by Interlink Grid AI.";
+    }
+  </script>
+</body>
+</html>
