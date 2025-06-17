@@ -1,0 +1,38 @@
+{
+  "active": false,
+  "launch_note": "System not open. All upgrades are blocked until launch.",
+  "unlock_rules": {
+    "home_personal": {
+      "max_level": 5,
+      "max_tier": 5,
+      "wait_days": 14
+    },
+    "personal_monetized": {
+      "max_level": 5,
+      "max_tier": 5,
+      "wait_days": 14
+    },
+    "small_business": {
+      "max_level": 6,
+      "max_tier": 6,
+      "wait_days": 7
+    },
+    "medium_large_business": {
+      "max_level": 6,
+      "max_tier": 6,
+      "wait_days": 3
+    },
+    "saas_affiliate": {
+      "max_level": 7,
+      "max_tier": 7,
+      "wait_days": 0
+    },
+    "enterprise": {
+      "max_level": 7,
+      "max_tier": 7,
+      "wait_days": 0
+    }
+  },
+  "system_timer_enabled": true,
+  "module_unlock_logic": "Each bot can request a new module only if current date >= (lastModuleUnlock + wait_days)"
+}
