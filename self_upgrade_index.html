@@ -59,15 +59,32 @@
   <script>
     function submitUpgrade() {
       const botId = document.getElementById("botId").value.trim();
-      const upgrade = document.getElementById("upgradeLevel").value;
-      if (!botId || !upgrade) {
+      const upgradeLevel = document.getElementById("upgradeLevel").value;
+
+      if (!botId || !upgradeLevel) {
         document.getElementById("message").innerHTML = "❌ Please enter bot ID and select an upgrade.";
         return;
       }
 
-      // Simulated upgrade request
-      document.getElementById("message").innerHTML = 
-        "✅ Upgrade request submitted for <strong>" + botId + "</strong><br>Requested: <em>" + upgrade + "</em><br>Status: Pending Review by Interlink Grid AI.";
+      fetch("/api/submit-upgrade", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ botId, upgradeLevel })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.message) {
+          document.getElementById("message").innerHTML = "✅ " + data.message;
+        } else {
+          document.getElementById("message").innerHTML = "❌ Error: " + (data.error || "Unknown error.");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("message").innerHTML = "❌ Failed to send upgrade request.";
+      });
     }
   </script>
 </body>
