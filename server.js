@@ -27,6 +27,7 @@ app.use('/module-catalog', moduleRoutes);
 app.post('/api/submit-reflection', submitReflection);
 app.post('/api/submit-upgrade', submitUpgrade);
 app.post('/api/submit-subscription', submitSubscription); // ✅ NEW
+app.post('/api/enter-grid', submitGatewayAccess);
 
 // Fallback for unknown paths
 app.get('*', (req, res) => {
