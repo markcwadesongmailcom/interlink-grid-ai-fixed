@@ -8,6 +8,9 @@ const adminRoutes = require('./routes/adminRoutes');
 const botRoutes = require('./routes/botRoutes');
 const moduleRoutes = require('./routes/moduleRoutes');
 
+// Import direct reflection handler from root folder
+const submitReflection = require('./submitReflection');
+
 // Middleware
 app.use(express.json()); // Allow JSON request handling
 app.use(express.static(path.join(__dirname, 'landing_page'))); // Serve static landing page
@@ -16,6 +19,9 @@ app.use(express.static(path.join(__dirname, 'landing_page'))); // Serve static l
 app.use('/dashboard', adminRoutes);
 app.use('/activate-bot', botRoutes);
 app.use('/module-catalog', moduleRoutes);
+
+// NEW API Route: Reflection logging
+app.post('/api/submit-reflection', submitReflection);
 
 // Fallback for unknown paths
 app.get('*', (req, res) => {
