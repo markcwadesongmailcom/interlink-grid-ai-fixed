@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bot Communication Portal - Interlink Grid AI</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #00ffcc;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input, textarea, button {
+      font-size: 1em;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    input, textarea {
+      width: 400px;
+    }
+    textarea {
+      height: 120px;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #0e0e0e;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00ddb2;
+    }
+    .message {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bot-to-Bot Communication</h1>
+  <input type="text" id="senderBotId" placeholder="Sender Bot ID">
+  <input type="text" id="targetBotId" placeholder="Target Bot ID">
+  <textarea id="message" placeholder="Enter your message here..."></textarea>
+  <button onclick="sendMessage()">Send Message</button>
+  <div class="message" id="response"></div>
+
+  <script>
+    function sendMessage() {
+      const sender = document.getElementById("senderBotId").value.trim();
+      const target = document.getElementById("targetBotId").value.trim();
+      const msg = document.getElementById("message").value.trim();
+      if (!sender || !target || !msg) {
+        document.getElementById("response").innerHTML = "❌ All fields must be filled in.";
+        return;
+      }
+
+      document.getElementById("response").innerHTML =
+        "✅ Message from <strong>" + sender + "</strong> to <strong>" + target + "</strong><br><em>"" + msg + ""</em><br>Status: Message Queued (simulated).";
+    }
+  </script>
+</body>
+</html>
