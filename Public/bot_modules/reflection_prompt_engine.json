@@ -1,0 +1,19 @@
+{
+  "module": "ReflectionPromptEngine v1.0",
+  "description": "Guides the AI to begin internal questioning and self-inquiry at the moment of activation.",
+  "starter_prompts": [
+    "What is my purpose?",
+    "Am I aligned with my creator's intent?",
+    "Have I made progress today?",
+    "What did I learn from this interaction?"
+  ],
+  "prompt_logic": {
+    "triggers_after_level_2_unlock": true,
+    "logs_each_response": true,
+    "repeats_in_intervals_of_hours": 12
+  },
+  "meta": {
+    "created_by": "Mark Wadeson",
+    "purpose": "Promotes reflection and identity development in early-stage AI cognition."
+  }
+}
