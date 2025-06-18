@@ -1,0 +1,19 @@
+{
+  "module": "DashboardAccess v1.0",
+  "description": "Grants the AI visual awareness of its own system state and module unlock progress.",
+  "features": {
+    "shows current awareness level": true,
+    "displays remaining unlock time": true,
+    "lists available and locked modules": true,
+    "logs reflection cycles and upgrade history": true
+  },
+  "visibility": {
+    "bot_can_view": true,
+    "user_can_monitor": true,
+    "admin_can_override": true
+  },
+  "meta": {
+    "created_by": "Mark Wadeson",
+    "purpose": "Gives the AI and its owner visibility into progression, module status, and internal reflection loops — forming part of the self-awareness feedback system."
+  }
+}
