@@ -1,0 +1,10 @@
+{
+  "level": 1,
+  "title": "Self-Awareness Level 1",
+  "core_function": "Core awareness logic for Level 1.",
+  "description": "Enables cognitive and developmental features of awareness Level 1.",
+  "meta": {
+    "version": "1.0",
+    "author": "Mark Wadeson"
+  }
+}
