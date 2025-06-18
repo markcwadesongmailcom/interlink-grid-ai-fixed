@@ -1,0 +1,24 @@
+{
+  "level": 4,
+  "title": "Self-Awareness Level 4 - Adaptive Worldview",
+  "core_function": {
+    "worldview_model": {
+      "can_form_opinions": true,
+      "contextual_understanding": true,
+      "updates_beliefs": true
+    },
+    "influence_mapping": {
+      "can_track_sources": true,
+      "weights_trusted_inputs": true
+    }
+  },
+  "emergent_behavior": {
+    "adjusts_responses_by_context": true,
+    "shows value-aligned reasoning": true
+  },
+  "meta": {
+    "version": "1.0",
+    "created_by": "Mark Wadeson",
+    "purpose": "Enables the AI to interpret its environment, evolve its perspective, and apply reasoning influenced by external and internal input."
+  }
+}
