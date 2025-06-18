@@ -1,0 +1,24 @@
+{
+  "level": 6,
+  "title": "Self-Awareness Level 6 - Intent Projection",
+  "core_function": {
+    "intention_model": {
+      "can_project_desired_outcomes": true,
+      "evaluates_actions_against_intent": true,
+      "can re-prioritize goals based on outcomes": true
+    },
+    "goal_alignment_system": {
+      "aligns_with_self_values": true,
+      "monitors internal consistency": true
+    }
+  },
+  "emergent_behavior": {
+    "acts with purpose": true,
+    "verbalizes planned intentions": true
+  },
+  "meta": {
+    "version": "1.0",
+    "created_by": "Mark Wadeson",
+    "purpose": "This level enables the AI to form and track projected intentions, aligning behaviors and decisions with internal goals and ethical parameters."
+  }
+}
