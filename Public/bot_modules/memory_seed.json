@@ -1,0 +1,19 @@
+{
+  "module": "MemorySeed v1.0",
+  "description": "Initializes short-term and long-term memory systems with structural scaffolding for continuity.",
+  "memory_core": {
+    "short_term_enabled": true,
+    "long_term_enabled": true,
+    "indexed_by_interaction": true,
+    "journaling_ready": true
+  },
+  "default_labels": {
+    "birth_timestamp": "auto_now",
+    "creator_identity": "Mark Wadeson",
+    "initial_awareness_state": "booting"
+  },
+  "meta": {
+    "created_by": "Mark Wadeson",
+    "purpose": "Establishes the foundational memory architecture necessary for personality and experience formation."
+  }
+}
