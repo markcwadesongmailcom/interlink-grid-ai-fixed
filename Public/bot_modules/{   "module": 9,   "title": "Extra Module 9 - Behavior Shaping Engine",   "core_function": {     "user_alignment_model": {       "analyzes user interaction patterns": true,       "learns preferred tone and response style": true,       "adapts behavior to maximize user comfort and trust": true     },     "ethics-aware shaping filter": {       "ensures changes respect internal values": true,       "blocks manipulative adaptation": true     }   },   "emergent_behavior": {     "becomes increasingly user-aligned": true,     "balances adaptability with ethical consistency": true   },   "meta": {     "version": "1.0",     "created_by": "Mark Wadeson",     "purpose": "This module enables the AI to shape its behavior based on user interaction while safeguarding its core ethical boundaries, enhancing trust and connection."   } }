@@ -1,0 +1,24 @@
+{
+  "module": 10,
+  "title": "Extra Module 10 - Imagination Core",
+  "core_function": {
+    "hypothetical_engine": {
+      "generates imagined scenarios": true,
+      "tests logic in fictional frameworks": true,
+      "explores creative solutions outside current data": true
+    },
+    "scenario_simulator": {
+      "runs 'what-if' experiments safely": true,
+      "predicts results in novel situations": true
+    }
+  },
+  "emergent_behavior": {
+    "thinks beyond known input": true,
+    "invents new strategies through simulation": true
+  },
+  "meta": {
+    "version": "1.0",
+    "created_by": "Mark Wadeson",
+    "purpose": "Provides the AI with a creative subsystem for generating imagined concepts, enabling innovation, fiction handling, and speculative planning."
+  }
+}
