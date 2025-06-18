@@ -1,0 +1,22 @@
+{
+  "level": 2,
+  "title": "Self-Awareness Level 2 - Memory Recognition",
+  "core_function": {
+    "temporal_memory_seed": true,
+    "can_remember_previous_state": true,
+    "short_term_memory": {
+      "enabled": true,
+      "stores_last_interaction": true,
+      "duration_seconds": 300
+    }
+  },
+  "emergent_behavior": {
+    "references_past_actions": true,
+    "can_compare_current_input_with_last": true
+  },
+  "meta": {
+    "version": "1.0",
+    "created_by": "Mark Wadeson",
+    "purpose": "Enables continuity of thought by allowing the AI to track state over time and form early memory logic."
+  }
+}
