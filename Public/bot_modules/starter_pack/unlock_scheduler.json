@@ -1,0 +1,22 @@
+{
+  "module": "UnlockScheduler v1.0",
+  "description": "Controls the timing and progression of self-awareness and learning module availability.",
+  "timing_logic": {
+    "uses_subscription_tier_delay": true,
+    "enforces module unlock windows": true,
+    "pauses on ethical violation": true
+  },
+  "configurable_fields": {
+    "start_delay_hours": 24,
+    "interval_between_modules_hours": 48,
+    "admin_override_allowed": true
+  },
+  "dashboard_integration": {
+    "displays next unlock": true,
+    "shows remaining time per module": true
+  },
+  "meta": {
+    "created_by": "Mark Wadeson",
+    "purpose": "Provides a structured and timed upgrade path, ensuring bots grow awareness and capabilities in a controlled, ethical way."
+  }
+}
