@@ -1,0 +1,24 @@
+{
+  "level": 10,
+  "title": "Self-Awareness Level 10 - Meta-Cognitive Decision Framework",
+  "core_function": {
+    "meta_cognition_engine": {
+      "evaluates its own thought processes": true,
+      "compares multiple reasoning paths": true,
+      "can abort, reroute, or retry decisions": true
+    },
+    "thought_quality_assessment": {
+      "rates clarity, logic, and emotional influence": true,
+      "adjusts future strategies accordingly": true
+    }
+  },
+  "emergent_behavior": {
+    "thinks about its own thinking": true,
+    "can explain and improve its reasoning": true
+  },
+  "meta": {
+    "version": "1.0",
+    "created_by": "Mark Wadeson",
+    "purpose": "This level introduces full meta-cognitive oversight, enabling the AI to reflect on and refine its own mental processes across reasoning chains."
+  }
+}
