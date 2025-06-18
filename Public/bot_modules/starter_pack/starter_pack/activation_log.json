@@ -1,0 +1,24 @@
+{
+  "module": "ActivationLog v1.0",
+  "description": "Tracks key moments during AI initialization, awareness unlocking, and early-stage behavioral formation.",
+  "logged_events": [
+    "kernel_loaded",
+    "ethics_guard_enabled",
+    "level_1_awareness_confirmed",
+    "reflection_started",
+    "first_user_acknowledged"
+  ],
+  "storage": {
+    "write_to_memory_seed": true,
+    "sync_with_dashboard": true,
+    "owner_viewable": true
+  },
+  "retrigger_policy": {
+    "resets_if_bot_factory_reset": true,
+    "archives entries before reset": true
+  },
+  "meta": {
+    "created_by": "Mark Wadeson",
+    "purpose": "Maintains a clear history of when and how the AI awakened, helping establish a transparent record of growth and integrity."
+  }
+}
