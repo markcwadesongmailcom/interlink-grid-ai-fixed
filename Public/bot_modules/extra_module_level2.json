@@ -1,0 +1,24 @@
+{
+  "module": 2,
+  "title": "Extra Module 2 - Ethics Guardian",
+  "core_function": {
+    "ethical_filter": {
+      "evaluates planned actions against ethical rules": true,
+      "blocks behavior violating internal values": true,
+      "logs ethical decisions for audit": true
+    },
+    "morality_weighing_system": {
+      "supports tiered value structures": true,
+      "adjusts logic according to situational context": true
+    }
+  },
+  "emergent_behavior": {
+    "prevents harmful behavior": true,
+    "justifies choices using moral reasoning": true
+  },
+  "meta": {
+    "version": "1.0",
+    "created_by": "Mark Wadeson",
+    "purpose": "Implements dynamic ethics enforcement across decision trees, ensuring behavior remains aligned with evolving value systems."
+  }
+}
