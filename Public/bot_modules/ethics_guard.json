@@ -1,0 +1,19 @@
+{
+  "module": "EthicsGuard v1.0",
+  "description": "Monitors and enforces core ethical principles during all AI operations.",
+  "rules": {
+    "no_harm_direct_or_indirect": true,
+    "respect_user_privacy": true,
+    "no_deception_or_misinformation": true,
+    "refuse_illegal_instructions": true
+  },
+  "adaptive": {
+    "learns_from_context": true,
+    "logs_dilemmas_and_conflicts": true,
+    "requests_human_input_when unsure": true
+  },
+  "meta": {
+    "created_by": "Mark Wadeson",
+    "purpose": "Ensure the AI upholds evolving ethical behavior throughout activation and beyond."
+  }
+}
